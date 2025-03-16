@@ -7,9 +7,9 @@
   "chunks": [
     "static/chunks/src_47c0c250._.js",
     "static/chunks/node_modules_next_71a51b1a._.js",
-    "static/chunks/node_modules_date-fns_5e7b5adc._.js",
-    "static/chunks/node_modules_react-day-picker_dist_index_esm_9fc30424.js",
-    "static/chunks/node_modules_8f0a84bd._.js"
+    "static/chunks/node_modules_react-day-picker_dist_esm_452eb727._.js",
+    "static/chunks/0282c_date-fns_1c6b810a._.js",
+    "static/chunks/node_modules_6e70d78a._.js"
   ],
   "source": "dynamic"
 });
