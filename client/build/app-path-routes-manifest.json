@@ -1,11 +1,11 @@
 {
   "/_not-found/page": "/_not-found",
   "/favicon.ico/route": "/favicon.ico",
+  "/calculators/compound-interest/page": "/calculators/compound-interest",
+  "/calculators/page": "/calculators",
   "/dashboard/page": "/dashboard",
   "/login/page": "/login",
   "/sign-in/[[...sign-in]]/page": "/sign-in/[[...sign-in]]",
-  "/calculators/page": "/calculators",
-  "/calculators/compound-interest/page": "/calculators/compound-interest",
   "/sign-up/page": "/sign-up",
   "/page": "/"
 }

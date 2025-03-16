@@ -10,8 +10,8 @@
       "page": "/",
       "matchers": [
         {
-          "regexp": "^(?:\\/(_next\\/data\\/[^/]{1,}))?(?:\\/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*))(\\.json)?[\\/#\\?]?$",
-          "originalSource": "/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)"
+          "regexp": "^(?:\\/(_next\\/data\\/[^/]{1,}))?(?:\\/((?!build|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*))(\\.json)?[\\/#\\?]?$",
+          "originalSource": "/((?!build|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)"
         },
         {
           "regexp": "^(?:\\/(_next\\/data\\/[^/]{1,}))?(?:\\/(api|trpc))(.*)(\\.json)?[\\/#\\?]?$",
@@ -21,11 +21,11 @@
       "wasm": [],
       "assets": [],
       "env": {
-        "__NEXT_BUILD_ID": "xvHYB-qcxr_kOLVid4J07",
+        "__NEXT_BUILD_ID": "AWoWNeqjiG7PVOvUZqNFI",
         "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "5W7W9+Hf83E7xV3pSMGZQX7UlTjGxsd1czOSeVdZoJY=",
-        "__NEXT_PREVIEW_MODE_ID": "749584618713159e4c6a8745dbaabcf3",
-        "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "0aa4cb18cd65183ef64bfb67d6475757f5d8d8711ea86f9f10481886371f7a12",
-        "__NEXT_PREVIEW_MODE_SIGNING_KEY": "dd9e81d0b349f3b2411f451a675e86c8f46bf0da71906bd50df74702b63039db"
+        "__NEXT_PREVIEW_MODE_ID": "e7acf52eb673d3579cdc9c6332feb64f",
+        "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "556dbc597254982ecd3964b73f7a39caef4bbe1a238557834c94cb942d012368",
+        "__NEXT_PREVIEW_MODE_SIGNING_KEY": "02cf1970b44cb4268b24908b26102f0033184c2379a9ca6f08917329a45dff02"
       }
     }
   },

@@ -12,10 +12,27 @@
       "static/chunks/4bd1b696-0daac4fa81ea4d52.js",
       "static/chunks/684-34ce1f1515ba3e51.js",
       "static/chunks/main-app-1b3d595ad000d057.js",
-      "static/css/b7ef2f71b2da99ec.css",
+      "static/css/165c9616f462a481.css",
       "static/chunks/977-45dccdd45d1b4002.js",
       "static/chunks/445-3e010be713562736.js",
       "static/chunks/app/layout-187b878955225781.js"
+    ],
+    "/calculators/compound-interest/page": [
+      "static/chunks/webpack-bbe5a80141acb0a3.js",
+      "static/chunks/4bd1b696-0daac4fa81ea4d52.js",
+      "static/chunks/684-34ce1f1515ba3e51.js",
+      "static/chunks/main-app-1b3d595ad000d057.js",
+      "static/chunks/277-66b9e07602ef0ea5.js",
+      "static/chunks/20-a8426fefa93149ae.js",
+      "static/chunks/638-b67912baa063a033.js",
+      "static/chunks/app/calculators/compound-interest/page-ff32dff40f11cdd2.js"
+    ],
+    "/calculators/page": [
+      "static/chunks/webpack-bbe5a80141acb0a3.js",
+      "static/chunks/4bd1b696-0daac4fa81ea4d52.js",
+      "static/chunks/684-34ce1f1515ba3e51.js",
+      "static/chunks/main-app-1b3d595ad000d057.js",
+      "static/chunks/app/calculators/page-28b1bb773147faa0.js"
     ],
     "/dashboard/page": [
       "static/chunks/webpack-bbe5a80141acb0a3.js",
@@ -45,23 +62,6 @@
       "static/chunks/277-66b9e07602ef0ea5.js",
       "static/chunks/977-45dccdd45d1b4002.js",
       "static/chunks/app/sign-in/[[...sign-in]]/page-f4586216963ac437.js"
-    ],
-    "/calculators/page": [
-      "static/chunks/webpack-bbe5a80141acb0a3.js",
-      "static/chunks/4bd1b696-0daac4fa81ea4d52.js",
-      "static/chunks/684-34ce1f1515ba3e51.js",
-      "static/chunks/main-app-1b3d595ad000d057.js",
-      "static/chunks/app/calculators/page-28b1bb773147faa0.js"
-    ],
-    "/calculators/compound-interest/page": [
-      "static/chunks/webpack-bbe5a80141acb0a3.js",
-      "static/chunks/4bd1b696-0daac4fa81ea4d52.js",
-      "static/chunks/684-34ce1f1515ba3e51.js",
-      "static/chunks/main-app-1b3d595ad000d057.js",
-      "static/chunks/277-66b9e07602ef0ea5.js",
-      "static/chunks/20-a8426fefa93149ae.js",
-      "static/chunks/638-b67912baa063a033.js",
-      "static/chunks/app/calculators/compound-interest/page-ff32dff40f11cdd2.js"
     ],
     "/sign-up/page": [
       "static/chunks/webpack-bbe5a80141acb0a3.js",
