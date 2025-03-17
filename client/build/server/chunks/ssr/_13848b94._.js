@@ -360,7 +360,6 @@ function PetsPage() {
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
         const fetchData = async ()=>{
             try {
-                // Fetch pets
                 const petsRes = await fetch(`${API_BASE_URL}/api/pets`, {
                     headers: {
                         'Content-Type': 'application/json'
@@ -369,14 +368,13 @@ function PetsPage() {
                 if (!petsRes.ok) throw new Error('Failed to fetch pets');
                 const petsData = await petsRes.json();
                 setPets(petsData);
-                // Fetch users for owner dropdown and name lookup
                 const usersRes = await fetch(`${API_BASE_URL}/api/users`, {
                     headers: {
                         'Content-Type': 'application/json'
                     }
                 });
                 if (!usersRes.ok) throw new Error('Failed to fetch users');
-                const usersData = await usersRes.json();
+                const usersData = await res.json();
                 setUsers(usersData);
             } catch (error) {
                 console.error('Error fetching data:', error);
@@ -390,7 +388,7 @@ function PetsPage() {
     const handleSubmit = async (e)=>{
         e.preventDefault();
         try {
-            const res = await fetch(`${API_BASE_URL}/api/pets`, {
+            const res1 = await fetch(`${API_BASE_URL}/api/pets`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -403,8 +401,8 @@ function PetsPage() {
                     ] : []
                 })
             });
-            if (!res.ok) throw new Error('Failed to create pet');
-            const newPet = await res.json();
+            if (!res1.ok) throw new Error('Failed to create pet');
+            const newPet = await res1.json();
             setPets([
                 ...pets,
                 newPet
@@ -428,7 +426,7 @@ function PetsPage() {
         children: "Loading..."
     }, void 0, false, {
         fileName: "[project]/src/app/pets/page.tsx",
-        lineNumber: 75,
+        lineNumber: 73,
         columnNumber: 23
     }, this);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -439,7 +437,7 @@ function PetsPage() {
                 children: "Pets"
             }, void 0, false, {
                 fileName: "[project]/src/app/pets/page.tsx",
-                lineNumber: 79,
+                lineNumber: 77,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Card"], {
@@ -450,12 +448,12 @@ function PetsPage() {
                             children: "Add New Pet"
                         }, void 0, false, {
                             fileName: "[project]/src/app/pets/page.tsx",
-                            lineNumber: 84,
+                            lineNumber: 82,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/app/pets/page.tsx",
-                        lineNumber: 83,
+                        lineNumber: 81,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -474,7 +472,7 @@ function PetsPage() {
                                     required: true
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/pets/page.tsx",
-                                    lineNumber: 88,
+                                    lineNumber: 86,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -488,7 +486,7 @@ function PetsPage() {
                                     required: true
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/pets/page.tsx",
-                                    lineNumber: 95,
+                                    lineNumber: 93,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Select"], {
@@ -503,37 +501,39 @@ function PetsPage() {
                                                 placeholder: "Select an owner"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/pets/page.tsx",
-                                                lineNumber: 107,
+                                                lineNumber: 105,
                                                 columnNumber: 17
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/pets/page.tsx",
-                                            lineNumber: 106,
+                                            lineNumber: 104,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectContent"], {
                                             children: users.map((user)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
                                                     value: user._id,
                                                     children: [
-                                                        user.name,
+                                                        user.firstName,
+                                                        " ",
+                                                        user.lastName,
                                                         " (",
                                                         user.email,
                                                         ")"
                                                     ]
                                                 }, user._id, true, {
                                                     fileName: "[project]/src/app/pets/page.tsx",
-                                                    lineNumber: 111,
+                                                    lineNumber: 109,
                                                     columnNumber: 19
                                                 }, this))
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/pets/page.tsx",
-                                            lineNumber: 109,
+                                            lineNumber: 107,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/pets/page.tsx",
-                                    lineNumber: 102,
+                                    lineNumber: 100,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -541,24 +541,24 @@ function PetsPage() {
                                     children: "Add Pet"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/pets/page.tsx",
-                                    lineNumber: 117,
+                                    lineNumber: 115,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/pets/page.tsx",
-                            lineNumber: 87,
+                            lineNumber: 85,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/app/pets/page.tsx",
-                        lineNumber: 86,
+                        lineNumber: 84,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/pets/page.tsx",
-                lineNumber: 82,
+                lineNumber: 80,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -567,7 +567,7 @@ function PetsPage() {
                     children: "No pets found."
                 }, void 0, false, {
                     fileName: "[project]/src/app/pets/page.tsx",
-                    lineNumber: 125,
+                    lineNumber: 123,
                     columnNumber: 11
                 }, this) : pets.map((pet)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Card"], {
                         children: [
@@ -580,17 +580,17 @@ function PetsPage() {
                                         children: pet.name
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/pets/page.tsx",
-                                        lineNumber: 131,
+                                        lineNumber: 129,
                                         columnNumber: 19
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/pets/page.tsx",
-                                    lineNumber: 130,
+                                    lineNumber: 128,
                                     columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/app/pets/page.tsx",
-                                lineNumber: 129,
+                                lineNumber: 127,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -600,7 +600,7 @@ function PetsPage() {
                                         children: pet.species
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/pets/page.tsx",
-                                        lineNumber: 137,
+                                        lineNumber: 135,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -608,7 +608,7 @@ function PetsPage() {
                                         children: pet._id
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/pets/page.tsx",
-                                        lineNumber: 138,
+                                        lineNumber: 136,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -618,7 +618,7 @@ function PetsPage() {
                                                 children: "Owners:"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/pets/page.tsx",
-                                                lineNumber: 140,
+                                                lineNumber: 138,
                                                 columnNumber: 19
                                             }, this),
                                             pet.owners?.length > 0 ? pet.owners.map((owner)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -627,15 +627,19 @@ function PetsPage() {
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
                                                             href: `/users/${owner._id || owner}`,
                                                             className: "font-bold text-blue-500 hover:underline",
-                                                            children: owner.name || getOwnerName(owner)
-                                                        }, void 0, false, {
+                                                            children: [
+                                                                owner.firstName || getOwnerName(owner),
+                                                                " ",
+                                                                owner.lastName || ""
+                                                            ]
+                                                        }, void 0, true, {
                                                             fileName: "[project]/src/app/pets/page.tsx",
-                                                            lineNumber: 144,
+                                                            lineNumber: 142,
                                                             columnNumber: 25
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                                                             fileName: "[project]/src/app/pets/page.tsx",
-                                                            lineNumber: 150,
+                                                            lineNumber: 148,
                                                             columnNumber: 25
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -643,49 +647,49 @@ function PetsPage() {
                                                             children: owner._id || owner
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/pets/page.tsx",
-                                                            lineNumber: 151,
+                                                            lineNumber: 149,
                                                             columnNumber: 25
                                                         }, this)
                                                     ]
                                                 }, owner._id || owner, true, {
                                                     fileName: "[project]/src/app/pets/page.tsx",
-                                                    lineNumber: 143,
+                                                    lineNumber: 141,
                                                     columnNumber: 23
                                                 }, this)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                 className: "text-sm",
                                                 children: "None"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/pets/page.tsx",
-                                                lineNumber: 155,
+                                                lineNumber: 153,
                                                 columnNumber: 21
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/pets/page.tsx",
-                                        lineNumber: 139,
+                                        lineNumber: 137,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/pets/page.tsx",
-                                lineNumber: 136,
+                                lineNumber: 134,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, pet._id, true, {
                         fileName: "[project]/src/app/pets/page.tsx",
-                        lineNumber: 128,
+                        lineNumber: 126,
                         columnNumber: 13
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/src/app/pets/page.tsx",
-                lineNumber: 123,
+                lineNumber: 121,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/pets/page.tsx",
-        lineNumber: 78,
+        lineNumber: 76,
         columnNumber: 5
     }, this);
 }

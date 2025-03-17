@@ -36,7 +36,7 @@ export default function UsersPage() {
     fetchUsers();
   }, []);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       const res = await fetch(`${API_BASE_URL}/api/users`, {
@@ -73,8 +73,8 @@ export default function UsersPage() {
             <Select value={formData.type} onValueChange={(value) => setFormData({ ...formData, type: value })} required>
               <SelectTrigger><SelectValue placeholder="Select Type" /></SelectTrigger>
               <SelectContent>
-                <SelectItem value="Client">Client</SelectItem>
-                <SelectItem value="Team">Team</SelectItem>
+                <SelectItem value="Individual">Individual</SelectItem>
+                <SelectItem value="Organization">Organization</SelectItem>
               </SelectContent>
             </Select>
             <Input placeholder="First Name" value={formData.firstName} onChange={(e) => setFormData({ ...formData, firstName: e.target.value })} required />

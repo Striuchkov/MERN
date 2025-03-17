@@ -20,7 +20,6 @@ export default function PetsPage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Fetch pets
         const petsRes = await fetch(`${API_BASE_URL}/api/pets`, {
           headers: { 'Content-Type': 'application/json' },
         });
@@ -28,12 +27,11 @@ export default function PetsPage() {
         const petsData = await petsRes.json();
         setPets(petsData);
 
-        // Fetch users for owner dropdown and name lookup
         const usersRes = await fetch(`${API_BASE_URL}/api/users`, {
           headers: { 'Content-Type': 'application/json' },
         });
         if (!usersRes.ok) throw new Error('Failed to fetch users');
-        const usersData = await usersRes.json();
+        const usersData = await res.json();
         setUsers(usersData);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -45,7 +43,7 @@ export default function PetsPage() {
   }, []);
 
   // Handle form submission to add a new pet
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       const res = await fetch(`${API_BASE_URL}/api/pets`, {
@@ -67,7 +65,7 @@ export default function PetsPage() {
   };
 
   // Helper to get owner name by ID
-  const getOwnerName = (ownerId) => {
+  const getOwnerName = (ownerId: string) => {
     const owner = users.find((user) => user._id === ownerId);
     return owner ? owner.name : 'Unknown';
   };
@@ -109,7 +107,7 @@ export default function PetsPage() {
               <SelectContent>
                 {users.map((user) => (
                   <SelectItem key={user._id} value={user._id}>
-                    {user.name} ({user.email})
+                    {user.firstName} {user.lastName} ({user.email})
                   </SelectItem>
                 ))}
               </SelectContent>
@@ -142,10 +140,10 @@ export default function PetsPage() {
                     pet.owners.map((owner) => (
                       <div key={owner._id || owner} className="mt-1">
                         <Link
-                          href={`/users/${owner._id || owner}`} // Handle both object and string
+                          href={`/users/${owner._id || owner}`}
                           className="font-bold text-blue-500 hover:underline"
                         >
-                          {owner.name || getOwnerName(owner)}
+                          {owner.firstName || getOwnerName(owner)} {owner.lastName || ""}
                         </Link>
                         <br />
                         <span className="text-blue-500">{owner._id || owner}</span>
