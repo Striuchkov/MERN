@@ -4,7 +4,7 @@ const User = require('../models/userModel');
 
 exports.getAllPets = async (req, res) => {
     try {
-      const pets = await Pet.find().populate('owners', 'name _id'); // Select only name and _id
+      const pets = await Pet.find().populate('owners', 'firstName lastName _id');
       res.json(pets);
     } catch (error) {
       res.status(500).json({ error: 'Failed to fetch pets' });

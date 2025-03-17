@@ -20,6 +20,7 @@ export default function PetsPage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        // Fetch pets
         const petsRes = await fetch(`${API_BASE_URL}/api/pets`, {
           headers: { 'Content-Type': 'application/json' },
         });
@@ -27,11 +28,12 @@ export default function PetsPage() {
         const petsData = await petsRes.json();
         setPets(petsData);
 
+        // Fetch users for owner dropdown and name lookup
         const usersRes = await fetch(`${API_BASE_URL}/api/users`, {
           headers: { 'Content-Type': 'application/json' },
         });
         if (!usersRes.ok) throw new Error('Failed to fetch users');
-        const usersData = await res.json();
+        const usersData = await usersRes.json(); // Fix: Use usersRes, not res
         setUsers(usersData);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -57,8 +59,8 @@ export default function PetsPage() {
       });
       if (!res.ok) throw new Error('Failed to create pet');
       const newPet = await res.json();
-      setPets([...pets, newPet]); // Add new pet to list
-      setFormData({ name: '', species: '', ownerId: '' }); // Reset form
+      setPets([...pets, newPet]);
+      setFormData({ name: '', species: '', ownerId: '' });
     } catch (error) {
       console.error('Error creating pet:', error);
     }
@@ -67,7 +69,7 @@ export default function PetsPage() {
   // Helper to get owner name by ID
   const getOwnerName = (ownerId: string) => {
     const owner = users.find((user) => user._id === ownerId);
-    return owner ? owner.name : 'Unknown';
+    return owner ? `${owner.firstName} ${owner.lastName}` : 'Unknown';
   };
 
   if (loading) return <p className="p-4">Loading...</p>;
@@ -143,7 +145,7 @@ export default function PetsPage() {
                           href={`/users/${owner._id || owner}`}
                           className="font-bold text-blue-500 hover:underline"
                         >
-                          {owner.firstName || getOwnerName(owner)} {owner.lastName || ""}
+                          {owner.firstName && owner.lastName ? `${owner.firstName} ${owner.lastName}` : getOwnerName(owner)}
                         </Link>
                         <br />
                         <span className="text-blue-500">{owner._id || owner}</span>
