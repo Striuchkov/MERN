@@ -1,9 +1,11 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
-  "/calculators/compound-interest/page": "app/calculators/compound-interest/page.js",
-  "/calculators/page": "app/calculators/page.js",
   "/clients/page": "app/clients/page.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
   "/page": "app/page.js",
-  "/sign-in/[[...sign-in]]/page": "app/sign-in/[[...sign-in]]/page.js"
+  "/pets/[id]/page": "app/pets/[id]/page.js",
+  "/pets/page": "app/pets/page.js",
+  "/sign-in/[[...sign-in]]/page": "app/sign-in/[[...sign-in]]/page.js",
+  "/users/[id]/page": "app/users/[id]/page.js",
+  "/users/page": "app/users/page.js"
 }

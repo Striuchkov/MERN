@@ -1,24 +1,31 @@
 const User = require('../models/userModel');
 
-// Get all users
-const getUsers = async (req, res) => {
+exports.getAllUsers = async (req, res) => {
   try {
-    const users = await User.find();
-    res.status(200).json(users);
+    const users = await User.find().populate('pets');
+    res.json(users);
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    res.status(500).json({ error: 'Failed to fetch users' });
   }
 };
 
-// Create a user (example)
-const createUser = async (req, res) => {
+exports.createUser = async (req, res) => {
   const { name, email, password } = req.body;
   try {
-    const user = await User.create({ name, email, password });
+    const user = new User({ name, email, password });
+    await user.save();
     res.status(201).json(user);
   } catch (error) {
-    res.status(400).json({ message: error.message });
+    res.status(400).json({ error: 'Failed to create user' });
   }
 };
 
-module.exports = { getUsers, createUser };
+exports.getUserById = async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id).populate('pets', 'name _id');
+    if (!user) return res.status(404).json({ error: 'User not found' });
+    res.json(user);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to fetch user' });
+  }
+};

@@ -103,7 +103,9 @@ function CardFooter({ className, ...props }) {
 var { g: global, __dirname } = __turbopack_context__;
 {
 __turbopack_context__.s({
+    "createPet": (()=>createPet),
     "createUser": (()=>createUser),
+    "fetchPets": (()=>fetchPets),
     "fetchUsers": (()=>fetchUsers)
 });
 const API_BASE_URL = ("TURBOPACK compile-time value", "http://localhost:5002") || 'http://localhost:5002';
@@ -125,6 +127,26 @@ async function createUser(data) {
         body: JSON.stringify(data)
     });
     if (!res.ok) throw new Error('Failed to create user');
+    return res.json();
+}
+async function fetchPets() {
+    const res = await fetch(`${API_BASE_URL}/api/pets`, {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+    if (!res.ok) throw new Error('Failed to fetch pets');
+    return res.json();
+}
+async function createPet(data) {
+    const res = await fetch(`${API_BASE_URL}/api/pets`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    });
+    if (!res.ok) throw new Error('Failed to create pet');
     return res.json();
 }
 }}),

@@ -121,7 +121,9 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
 {
 __turbopack_context__.s({
+    "createPet": (()=>createPet),
     "createUser": (()=>createUser),
+    "fetchPets": (()=>fetchPets),
     "fetchUsers": (()=>fetchUsers)
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
@@ -144,6 +146,26 @@ async function createUser(data) {
         body: JSON.stringify(data)
     });
     if (!res.ok) throw new Error('Failed to create user');
+    return res.json();
+}
+async function fetchPets() {
+    const res = await fetch(`${API_BASE_URL}/api/pets`, {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+    if (!res.ok) throw new Error('Failed to fetch pets');
+    return res.json();
+}
+async function createPet(data) {
+    const res = await fetch(`${API_BASE_URL}/api/pets`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    });
+    if (!res.ok) throw new Error('Failed to create pet');
     return res.json();
 }
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
