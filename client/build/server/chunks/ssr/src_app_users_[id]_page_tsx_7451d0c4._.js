@@ -17,7 +17,6 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 ;
 ;
 ;
-// Use environment variable for API base URL
 const API_BASE_URL = ("TURBOPACK compile-time value", "http://localhost:5002") || 'http://localhost:5002';
 function UserPage() {
     const { id } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useParams"])();
@@ -42,7 +41,7 @@ function UserPage() {
         children: "Loading..."
     }, void 0, false, {
         fileName: "[project]/src/app/users/[id]/page.tsx",
-        lineNumber: 31,
+        lineNumber: 30,
         columnNumber: 23
     }, this);
     if (!user) return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -50,7 +49,7 @@ function UserPage() {
         children: "User not found."
     }, void 0, false, {
         fileName: "[project]/src/app/users/[id]/page.tsx",
-        lineNumber: 32,
+        lineNumber: 31,
         columnNumber: 21
     }, this);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -58,26 +57,111 @@ function UserPage() {
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
                 className: "text-2xl font-bold",
-                children: user.name
-            }, void 0, false, {
+                children: [
+                    user.firstName,
+                    " ",
+                    user.lastName
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/app/users/[id]/page.tsx",
+                lineNumber: 35,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                className: "text-gray-600",
+                children: [
+                    "ID: ",
+                    user._id
+                ]
+            }, void 0, true, {
                 fileName: "[project]/src/app/users/[id]/page.tsx",
                 lineNumber: 36,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                className: "text-gray-600",
-                children: user.email
-            }, void 0, false, {
+                children: [
+                    "Type: ",
+                    user.type
+                ]
+            }, void 0, true, {
                 fileName: "[project]/src/app/users/[id]/page.tsx",
                 lineNumber: 37,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                className: "text-blue-500",
-                children: user._id
-            }, void 0, false, {
+                children: [
+                    "Email: ",
+                    user.email
+                ]
+            }, void 0, true, {
                 fileName: "[project]/src/app/users/[id]/page.tsx",
                 lineNumber: 38,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                children: [
+                    "Phone Number: ",
+                    user.phoneNumber
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/app/users/[id]/page.tsx",
+                lineNumber: 39,
+                columnNumber: 7
+            }, this),
+            user.additionalPhoneNumber && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                children: [
+                    "Additional Phone Number: ",
+                    user.additionalPhoneNumber
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/app/users/[id]/page.tsx",
+                lineNumber: 40,
+                columnNumber: 38
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                children: [
+                    "Address: ",
+                    user.address,
+                    ", ",
+                    user.city,
+                    ", ",
+                    user.state,
+                    " ",
+                    user.postalCode
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/app/users/[id]/page.tsx",
+                lineNumber: 41,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                children: [
+                    "Status: ",
+                    user.status
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/app/users/[id]/page.tsx",
+                lineNumber: 42,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                children: [
+                    "rDVM: ",
+                    user.rDVM
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/app/users/[id]/page.tsx",
+                lineNumber: 43,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                children: [
+                    "Marketing Channel: ",
+                    user.marketingChannel
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/app/users/[id]/page.tsx",
+                lineNumber: 44,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -88,7 +172,7 @@ function UserPage() {
                         children: "Pets:"
                     }, void 0, false, {
                         fileName: "[project]/src/app/users/[id]/page.tsx",
-                        lineNumber: 40,
+                        lineNumber: 46,
                         columnNumber: 9
                     }, this),
                     user.pets && user.pets.length > 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -100,36 +184,36 @@ function UserPage() {
                                     children: pet.name || pet
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/users/[id]/page.tsx",
-                                    lineNumber: 45,
-                                    columnNumber: 15
+                                    lineNumber: 51,
+                                    columnNumber: 17
                                 }, this)
                             }, pet._id || pet, false, {
                                 fileName: "[project]/src/app/users/[id]/page.tsx",
-                                lineNumber: 44,
-                                columnNumber: 13
+                                lineNumber: 50,
+                                columnNumber: 15
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/src/app/users/[id]/page.tsx",
-                        lineNumber: 42,
+                        lineNumber: 48,
                         columnNumber: 11
                     }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                         className: "text-sm",
                         children: "No pets assigned."
                     }, void 0, false, {
                         fileName: "[project]/src/app/users/[id]/page.tsx",
-                        lineNumber: 52,
+                        lineNumber: 58,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/users/[id]/page.tsx",
-                lineNumber: 39,
+                lineNumber: 45,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/users/[id]/page.tsx",
-        lineNumber: 35,
+        lineNumber: 34,
         columnNumber: 5
     }, this);
 }

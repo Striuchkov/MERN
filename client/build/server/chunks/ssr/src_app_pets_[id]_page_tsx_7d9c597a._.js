@@ -35,7 +35,7 @@ function PetPage() {
         children: "Loading..."
     }, void 0, false, {
         fileName: "[project]/src/app/pets/[id]/page.tsx",
-        lineNumber: 24,
+        lineNumber: 37,
         columnNumber: 20
     }, this);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -46,7 +46,7 @@ function PetPage() {
                 children: pet.name
             }, void 0, false, {
                 fileName: "[project]/src/app/pets/[id]/page.tsx",
-                lineNumber: 28,
+                lineNumber: 41,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -54,7 +54,7 @@ function PetPage() {
                 children: pet.species
             }, void 0, false, {
                 fileName: "[project]/src/app/pets/[id]/page.tsx",
-                lineNumber: 29,
+                lineNumber: 42,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -62,7 +62,7 @@ function PetPage() {
                 children: pet._id
             }, void 0, false, {
                 fileName: "[project]/src/app/pets/[id]/page.tsx",
-                lineNumber: 30,
+                lineNumber: 43,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -73,7 +73,7 @@ function PetPage() {
                         children: "Owners:"
                     }, void 0, false, {
                         fileName: "[project]/src/app/pets/[id]/page.tsx",
-                        lineNumber: 32,
+                        lineNumber: 45,
                         columnNumber: 9
                     }, this),
                     pet.owners && pet.owners.length > 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -81,55 +81,55 @@ function PetPage() {
                         children: pet.owners.map((owner)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
-                                        href: `/users/${owner._id || owner}`,
+                                        href: `/users/${typeof owner === 'string' ? owner : owner._id}`,
                                         className: "font-bold text-blue-500 hover:underline",
-                                        children: owner.name || 'Unknown'
+                                        children: typeof owner === 'string' ? 'Unknown' : owner.name || 'Unknown'
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/pets/[id]/page.tsx",
-                                        lineNumber: 37,
+                                        lineNumber: 50,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                                         fileName: "[project]/src/app/pets/[id]/page.tsx",
-                                        lineNumber: 43,
+                                        lineNumber: 56,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                         className: "text-blue-500",
-                                        children: owner._id || owner
+                                        children: typeof owner === 'string' ? owner : owner._id
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/pets/[id]/page.tsx",
-                                        lineNumber: 44,
+                                        lineNumber: 57,
                                         columnNumber: 17
                                     }, this)
                                 ]
-                            }, owner._id || owner, true, {
+                            }, typeof owner === 'string' ? owner : owner._id, true, {
                                 fileName: "[project]/src/app/pets/[id]/page.tsx",
-                                lineNumber: 36,
+                                lineNumber: 49,
                                 columnNumber: 15
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/src/app/pets/[id]/page.tsx",
-                        lineNumber: 34,
+                        lineNumber: 47,
                         columnNumber: 11
                     }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                         className: "text-sm",
                         children: "No owners assigned."
                     }, void 0, false, {
                         fileName: "[project]/src/app/pets/[id]/page.tsx",
-                        lineNumber: 49,
+                        lineNumber: 64,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/pets/[id]/page.tsx",
-                lineNumber: 31,
+                lineNumber: 44,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/pets/[id]/page.tsx",
-        lineNumber: 27,
+        lineNumber: 40,
         columnNumber: 5
     }, this);
 }

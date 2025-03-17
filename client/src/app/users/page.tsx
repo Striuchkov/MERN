@@ -1,19 +1,23 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
-// Use environment variable for API base URL
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5002';
 
 export default function UsersPage() {
   const [users, setUsers] = useState([]);
-  const [formData, setFormData] = useState({ name: '', email: '', password: '' });
+  const [formData, setFormData] = useState({
+    type: '', firstName: '', lastName: '', email: '', phoneNumber: '',
+    additionalPhoneNumber: '', address: '', city: '', state: '', postalCode: '',
+    status: '', rDVM: '', marketingChannel: '',
+  });
   const [loading, setLoading] = useState(true);
 
-  // Fetch all users
   useEffect(() => {
     const fetchUsers = async () => {
       try {
@@ -32,7 +36,6 @@ export default function UsersPage() {
     fetchUsers();
   }, []);
 
-  // Handle form submission to add a new user
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -43,8 +46,12 @@ export default function UsersPage() {
       });
       if (!res.ok) throw new Error('Failed to create user');
       const newUser = await res.json();
-      setUsers([...users, newUser]); // Add new user to list
-      setFormData({ name: '', email: '', password: '' }); // Reset form
+      setUsers([...users, newUser]);
+      setFormData({
+        type: '', firstName: '', lastName: '', email: '', phoneNumber: '',
+        additionalPhoneNumber: '', address: '', city: '', state: '', postalCode: '',
+        status: '', rDVM: '', marketingChannel: '',
+      });
     } catch (error) {
       console.error('Error creating user:', error);
     }
@@ -63,27 +70,32 @@ export default function UsersPage() {
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">
-            <Input
-              type="text"
-              placeholder="Name"
-              value={formData.name}
-              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              required
-            />
-            <Input
-              type="email"
-              placeholder="Email"
-              value={formData.email}
-              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              required
-            />
-            <Input
-              type="password"
-              placeholder="Password"
-              value={formData.password}
-              onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-              required
-            />
+            <Select value={formData.type} onValueChange={(value) => setFormData({ ...formData, type: value })} required>
+              <SelectTrigger><SelectValue placeholder="Select Type" /></SelectTrigger>
+              <SelectContent>
+                <SelectItem value="Client">Client</SelectItem>
+                <SelectItem value="Team">Team</SelectItem>
+              </SelectContent>
+            </Select>
+            <Input placeholder="First Name" value={formData.firstName} onChange={(e) => setFormData({ ...formData, firstName: e.target.value })} required />
+            <Input placeholder="Last Name" value={formData.lastName} onChange={(e) => setFormData({ ...formData, lastName: e.target.value })} required />
+            <Input type="email" placeholder="Email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} required />
+            <Input placeholder="Phone Number" value={formData.phoneNumber} onChange={(e) => setFormData({ ...formData, phoneNumber: e.target.value })} required />
+            <Input placeholder="Additional Phone Number" value={formData.additionalPhoneNumber} onChange={(e) => setFormData({ ...formData, additionalPhoneNumber: e.target.value })} />
+            <Input placeholder="Address" value={formData.address} onChange={(e) => setFormData({ ...formData, address: e.target.value })} required />
+            <Input placeholder="City" value={formData.city} onChange={(e) => setFormData({ ...formData, city: e.target.value })} required />
+            <Input placeholder="State/Province" value={formData.state} onChange={(e) => setFormData({ ...formData, state: e.target.value })} required />
+            <Input placeholder="Postal Code" value={formData.postalCode} onChange={(e) => setFormData({ ...formData, postalCode: e.target.value })} required />
+            <Select value={formData.status} onValueChange={(value) => setFormData({ ...formData, status: value })} required>
+              <SelectTrigger><SelectValue placeholder="Select Status" /></SelectTrigger>
+              <SelectContent>
+                <SelectItem value="Active">Active</SelectItem>
+                <SelectItem value="Inactive">Inactive</SelectItem>
+                <SelectItem value="Pending">Pending</SelectItem>
+              </SelectContent>
+            </Select>
+            <Input placeholder="rDVM" value={formData.rDVM} onChange={(e) => setFormData({ ...formData, rDVM: e.target.value })} required />
+            <Input placeholder="Marketing Channel" value={formData.marketingChannel} onChange={(e) => setFormData({ ...formData, marketingChannel: e.target.value })} required />
             <Button type="submit">Add User</Button>
           </form>
         </CardContent>
@@ -97,11 +109,22 @@ export default function UsersPage() {
           users.map((user) => (
             <Card key={user._id}>
               <CardHeader>
-                <CardTitle className="text-lg">{user.name}</CardTitle>
+                <CardTitle className="text-lg">
+                  <Link href={`/users/${user._id}`} className="text-blue-500 hover:underline">
+                    {user.firstName} {user.lastName}
+                  </Link>
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">{user.email}</p>
                 <p className="text-blue-500">{user._id}</p>
+                <p>Type: {user.type}</p>
+                <p>Phone: {user.phoneNumber}</p>
+                {user.additionalPhoneNumber && <p>Additional Phone: {user.additionalPhoneNumber}</p>}
+                <p>Address: {user.address}, {user.city}, {user.state} {user.postalCode}</p>
+                <p>Status: {user.status}</p>
+                <p>rDVM: {user.rDVM}</p>
+                <p>Marketing Channel: {user.marketingChannel}</p>
               </CardContent>
             </Card>
           ))
