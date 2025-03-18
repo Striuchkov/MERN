@@ -7,14 +7,57 @@ import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
+// Define User interface
+interface User {
+  _id: string;
+  type: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phoneNumber: string;
+  additionalPhoneNumber?: string;
+  address: string;
+  city: string;
+  state: string;
+  postalCode: string;
+  status: string;
+  rDVM: string;
+  marketingChannel: string;
+  pets: string[] | { _id: string; name: string }[]; // Can be IDs or populated objects
+}
+
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5002';
 
 export default function UsersPage() {
-  const [users, setUsers] = useState([]);
-  const [formData, setFormData] = useState({
-    type: '', firstName: '', lastName: '', email: '', phoneNumber: '',
-    additionalPhoneNumber: '', address: '', city: '', state: '', postalCode: '',
-    status: '', rDVM: '', marketingChannel: '',
+  const [users, setUsers] = useState<User[]>([]);
+  const [formData, setFormData] = useState<{
+    type: string;
+    firstName: string;
+    lastName: string;
+    email: string;
+    phoneNumber: string;
+    additionalPhoneNumber: string;
+    address: string;
+    city: string;
+    state: string;
+    postalCode: string;
+    status: string;
+    rDVM: string;
+    marketingChannel: string;
+  }>({
+    type: '',
+    firstName: '',
+    lastName: '',
+    email: '',
+    phoneNumber: '',
+    additionalPhoneNumber: '',
+    address: '',
+    city: '',
+    state: '',
+    postalCode: '',
+    status: '',
+    rDVM: '',
+    marketingChannel: '',
   });
   const [loading, setLoading] = useState(true);
 
@@ -48,9 +91,19 @@ export default function UsersPage() {
       const newUser = await res.json();
       setUsers([...users, newUser]);
       setFormData({
-        type: '', firstName: '', lastName: '', email: '', phoneNumber: '',
-        additionalPhoneNumber: '', address: '', city: '', state: '', postalCode: '',
-        status: '', rDVM: '', marketingChannel: '',
+        type: '',
+        firstName: '',
+        lastName: '',
+        email: '',
+        phoneNumber: '',
+        additionalPhoneNumber: '',
+        address: '',
+        city: '',
+        state: '',
+        postalCode: '',
+        status: '',
+        rDVM: '',
+        marketingChannel: '',
       });
     } catch (error) {
       console.error('Error creating user:', error);
@@ -70,32 +123,99 @@ export default function UsersPage() {
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">
-            <Select value={formData.type} onValueChange={(value) => setFormData({ ...formData, type: value })} required>
-              <SelectTrigger><SelectValue placeholder="Select Type" /></SelectTrigger>
+            <Select
+              value={formData.type}
+              onValueChange={(value) => setFormData({ ...formData, type: value })}
+              required
+            >
+              <SelectTrigger>
+                <SelectValue placeholder="Select Type" />
+              </SelectTrigger>
               <SelectContent>
                 <SelectItem value="Individual">Individual</SelectItem>
                 <SelectItem value="Organization">Organization</SelectItem>
               </SelectContent>
             </Select>
-            <Input placeholder="First Name" value={formData.firstName} onChange={(e) => setFormData({ ...formData, firstName: e.target.value })} required />
-            <Input placeholder="Last Name" value={formData.lastName} onChange={(e) => setFormData({ ...formData, lastName: e.target.value })} required />
-            <Input type="email" placeholder="Email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} required />
-            <Input placeholder="Phone Number" value={formData.phoneNumber} onChange={(e) => setFormData({ ...formData, phoneNumber: e.target.value })} required />
-            <Input placeholder="Additional Phone Number" value={formData.additionalPhoneNumber} onChange={(e) => setFormData({ ...formData, additionalPhoneNumber: e.target.value })} />
-            <Input placeholder="Address" value={formData.address} onChange={(e) => setFormData({ ...formData, address: e.target.value })} required />
-            <Input placeholder="City" value={formData.city} onChange={(e) => setFormData({ ...formData, city: e.target.value })} required />
-            <Input placeholder="State/Province" value={formData.state} onChange={(e) => setFormData({ ...formData, state: e.target.value })} required />
-            <Input placeholder="Postal Code" value={formData.postalCode} onChange={(e) => setFormData({ ...formData, postalCode: e.target.value })} required />
-            <Select value={formData.status} onValueChange={(value) => setFormData({ ...formData, status: value })} required>
-              <SelectTrigger><SelectValue placeholder="Select Status" /></SelectTrigger>
+            <Input
+              placeholder="First Name"
+              value={formData.firstName}
+              onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
+              required
+            />
+            <Input
+              placeholder="Last Name"
+              value={formData.lastName}
+              onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
+              required
+            />
+            <Input
+              type="email"
+              placeholder="Email"
+              value={formData.email}
+              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              required
+            />
+            <Input
+              placeholder="Phone Number"
+              value={formData.phoneNumber}
+              onChange={(e) => setFormData({ ...formData, phoneNumber: e.target.value })}
+              required
+            />
+            <Input
+              placeholder="Additional Phone Number"
+              value={formData.additionalPhoneNumber}
+              onChange={(e) => setFormData({ ...formData, additionalPhoneNumber: e.target.value })}
+            />
+            <Input
+              placeholder="Address"
+              value={formData.address}
+              onChange={(e) => setFormData({ ...formData, address: e.target.value })}
+              required
+            />
+            <Input
+              placeholder="City"
+              value={formData.city}
+              onChange={(e) => setFormData({ ...formData, city: e.target.value })}
+              required
+            />
+            <Input
+              placeholder="State/Province"
+              value={formData.state}
+              onChange={(e) => setFormData({ ...formData, state: e.target.value })}
+              required
+            />
+            <Input
+              placeholder="Postal Code"
+              value={formData.postalCode}
+              onChange={(e) => setFormData({ ...formData, postalCode: e.target.value })}
+              required
+            />
+            <Select
+              value={formData.status}
+              onValueChange={(value) => setFormData({ ...formData, status: value })}
+              required
+            >
+              <SelectTrigger>
+                <SelectValue placeholder="Select Status" />
+              </SelectTrigger>
               <SelectContent>
                 <SelectItem value="Active">Active</SelectItem>
                 <SelectItem value="Inactive">Inactive</SelectItem>
                 <SelectItem value="Pending">Pending</SelectItem>
               </SelectContent>
             </Select>
-            <Input placeholder="rDVM" value={formData.rDVM} onChange={(e) => setFormData({ ...formData, rDVM: e.target.value })} required />
-            <Input placeholder="Marketing Channel" value={formData.marketingChannel} onChange={(e) => setFormData({ ...formData, marketingChannel: e.target.value })} required />
+            <Input
+              placeholder="rDVM"
+              value={formData.rDVM}
+              onChange={(e) => setFormData({ ...formData, rDVM: e.target.value })}
+              required
+            />
+            <Input
+              placeholder="Marketing Channel"
+              value={formData.marketingChannel}
+              onChange={(e) => setFormData({ ...formData, marketingChannel: e.target.value })}
+              required
+            />
             <Button type="submit">Add User</Button>
           </form>
         </CardContent>
@@ -120,8 +240,12 @@ export default function UsersPage() {
                 <p className="text-blue-500">{user._id}</p>
                 <p>Type: {user.type}</p>
                 <p>Phone: {user.phoneNumber}</p>
-                {user.additionalPhoneNumber && <p>Additional Phone: {user.additionalPhoneNumber}</p>}
-                <p>Address: {user.address}, {user.city}, {user.state} {user.postalCode}</p>
+                {user.additionalPhoneNumber && (
+                  <p>Additional Phone: {user.additionalPhoneNumber}</p>
+                )}
+                <p>
+                  Address: {user.address}, {user.city}, {user.state} {user.postalCode}
+                </p>
                 <p>Status: {user.status}</p>
                 <p>rDVM: {user.rDVM}</p>
                 <p>Marketing Channel: {user.marketingChannel}</p>

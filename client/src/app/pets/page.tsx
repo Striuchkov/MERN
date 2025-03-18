@@ -7,13 +7,43 @@ import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
+// Define interfaces for Pet and User
+interface Pet {
+  _id: string;
+  name: string;
+  species: string;
+  owners: (string | { _id: string; firstName: string; lastName: string })[]; // Support both populated objects and IDs
+}
+
+interface User {
+  _id: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  type: string;
+  phoneNumber: string;
+  additionalPhoneNumber?: string;
+  address: string;
+  city: string;
+  state: string;
+  postalCode: string;
+  status: string;
+  rDVM: string;
+  marketingChannel: string;
+  pets: string[];
+}
+
 // Use environment variable for API base URL
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5002';
 
 export default function PetsPage() {
-  const [pets, setPets] = useState([]);
-  const [users, setUsers] = useState([]); // For owner dropdown and name lookup
-  const [formData, setFormData] = useState({ name: '', species: '', ownerId: '' });
+  const [pets, setPets] = useState<Pet[]>([]);
+  const [users, setUsers] = useState<User[]>([]); // For owner dropdown and name lookup
+  const [formData, setFormData] = useState<{ name: string; species: string; ownerId: string }>({
+    name: '',
+    species: '',
+    ownerId: '',
+  });
   const [loading, setLoading] = useState(true);
 
   // Fetch all pets and users
@@ -33,7 +63,7 @@ export default function PetsPage() {
           headers: { 'Content-Type': 'application/json' },
         });
         if (!usersRes.ok) throw new Error('Failed to fetch users');
-        const usersData = await usersRes.json(); // Fix: Use usersRes, not res
+        const usersData = await usersRes.json();
         setUsers(usersData);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -140,15 +170,22 @@ export default function PetsPage() {
                   <p>Owners:</p>
                   {pet.owners?.length > 0 ? (
                     pet.owners.map((owner) => (
-                      <div key={owner._id || owner} className="mt-1">
+                      <div
+                        key={typeof owner === 'string' ? owner : owner._id}
+                        className="mt-1"
+                      >
                         <Link
-                          href={`/users/${owner._id || owner}`}
+                          href={`/users/${typeof owner === 'string' ? owner : owner._id}`}
                           className="font-bold text-blue-500 hover:underline"
                         >
-                          {owner.firstName && owner.lastName ? `${owner.firstName} ${owner.lastName}` : getOwnerName(owner)}
+                          {typeof owner === 'string'
+                            ? getOwnerName(owner)
+                            : `${owner.firstName} ${owner.lastName}`}
                         </Link>
                         <br />
-                        <span className="text-blue-500">{owner._id || owner}</span>
+                        <span className="text-blue-500">
+                          {typeof owner === 'string' ? owner : owner._id}
+                        </span>
                       </div>
                     ))
                   ) : (
